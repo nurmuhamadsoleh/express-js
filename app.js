@@ -25,7 +25,11 @@ var app = express();
 app.use(express.urlencoded({ extended: true })); //karena post sama get sama dalam arti req datang dari url tapi req di hidden
 
 // running express
-app.listen(3000, () => console.log(`Server: http://localhost:3000`));
+// app.listen(3000, () => console.log(`Server: http://localhost:3000`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
