@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const Validator = require("fastest-validator");
 const md5 = require("md5");
-// Melakukan Validasi Form
+// Melakukan Validasi Form Input
 const v = new Validator();
 const getUsers = async (req, res) => {
   try {
