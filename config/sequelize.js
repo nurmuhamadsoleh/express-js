@@ -1,11 +1,11 @@
 // Menggunakan Promise dengan menggunakan Sequelize lebih ke fitur synchronize
 const { Sequelize } = require("sequelize");
 const sequelize = new Sequelize({
-  database: process.env.DB_NAME,
-  host: process.env.DB_HOST,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  // dialect: process.env.DB_DIALECT,
+  database: "heroku_50877c8a747ff2f",
+  host: "us-cdbr-east-06.cleardb.net",
+  username: "bab6b88769f502",
+  password: "fb315f89",
+  dialect: process.env.DB_DIALECT,
 });
 
 //untuk mengecek connection ke database

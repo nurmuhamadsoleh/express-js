@@ -44,17 +44,16 @@ const Product = sequelize.define(
   //     freezeTableName: true,
   //   }
 );
-const User = db.define("users", {
-  name: DataTypes.STRING,
-  email: DataTypes.STRING,
-  gender: DataTypes.STRING,
-});
+// const User = db.define("users", {
+//   name: DataTypes.STRING,
+//   email: DataTypes.STRING,
+//   gender: DataTypes.STRING,
+// });
 //melakukan Intiansiasi/ melakukan sinkronisasi setiap saat
 module.exports = {
   Product,
-  User,
 };
 // function untuk membuat table user jika di database belum terdapat Table User
-(async () => {
-  await db.async();
-})();
+// (async () => {
+//   await db.async();
+// })();
