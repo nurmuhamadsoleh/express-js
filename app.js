@@ -12,7 +12,7 @@ const logger = require("morgan");
 var express = require("express");
 
 var path = require("path");
-var cookieParser = require("cookie-parser");
+// var cookieParser = require("cookie-parser");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -22,7 +22,7 @@ var app = express();
 
 // menggunakan body parse dengan middleware sebelum routing di jalankan
 // jika req bentuk form data seperti multipart form atau Form Url Encode seperti form html
-app.use(express.urlencoded({ extended: true })); //karena post sama get sama dalam arti req datang dari url tapi req di hidden
+//karena post sama get sama dalam arti req datang dari url tapi req di hidden
 
 // running express
 // app.listen(3000, () => console.log(`Server: http://localhost:3000`));
@@ -44,8 +44,8 @@ app.use(express.urlencoded({ extended: true }));
 // untuk menangani file statics
 app.use("/public", express.static(path.join(__dirname, "uploads"))); //akses url --> /public/nama_file
 
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(cookieParser());
+// app.use(express.static(path.join(__dirname, "public")));
 //Membuat Routing untuk dapat di tampilkan karena express bekerja dengan cara routing
 //app.use bisa digunakan juga untuk middelware tidak mendefinisikasi method secara default GET
 app.use("/", indexRouter);

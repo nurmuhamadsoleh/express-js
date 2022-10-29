@@ -75,9 +75,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   return Product;
 };
-// module.exports = {
-//   Product,
-// };
+// module.exports = Product;
 // function untuk membuat table user jika di database belum terdapat Table User
 // (async () => {
 //   await db.async();

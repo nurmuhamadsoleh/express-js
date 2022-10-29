@@ -5,7 +5,11 @@ const sequelize = new Sequelize({
   host: "us-cdbr-east-06.cleardb.net",
   username: "bab6b88769f502",
   password: "fb315f89",
-  dialect: "mysql",
+  // host: "localhost", //akses untuk database
+  // username: "root",
+  // password: "Sukses889123",
+  // database: "karyawan_crud_v2",
+  dialect: process.env.DB_DIALECT,
 });
 
 //untuk mengecek connection ke database

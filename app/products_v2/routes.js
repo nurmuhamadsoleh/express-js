@@ -8,7 +8,7 @@ const upload = multer({ dest: "uploads" });
 // const path = require("path");
 const ProductControllerV2 = require("./controller");
 router.post("/product", ProductControllerV2.saveProduct);
-router.post("/products", upload.single("image"), ProductControllerV2.input);
+router.post("/products", ProductControllerV2.input);
 router.get("/products", ProductControllerV2.getUsers);
 router.get("/products/:id", ProductControllerV2.getUsersById);
 router.put("/products/:id", ProductControllerV2.UpdateUser);

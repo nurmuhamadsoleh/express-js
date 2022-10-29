@@ -7,6 +7,7 @@ const md5 = require("md5");
 // Melakukan Validasi Form Input
 const v = new Validator();
 const getUsers = async (req, res) => {
+  console.log(req);
   try {
     const response = await Product.findAll();
     // res.send(response);
@@ -111,46 +112,52 @@ const UpdateUser = async (req, res) => {
   //   }
 };
 const input = async (req, res) => {
+  // res.send("req");
   const { users_id, nama, price, stock, status } = req.body;
-  const image = req.file;
+  console.log("body", req.body);
+  // const image = req.file;
   //Shorthand Definitions
-  const schema = {
-    // option digunakan untuk fild name boleh di kosongkan
-    nama: "string|min:3",
-    users_id: "string",
-    // price: "string|",
-    stock: "string",
-    // status: ["boolean", "number|min:0|max:1"],
-  };
-  const validate = v.validate(req.body, schema);
+  // const schema = {
+  //   // option digunakan untuk fild name boleh di kosongkan
+  //   nama: "string|min:3",
+  //   users_id: "string",
+  //   // price: "string|",
+  //   stock: "string",
+  //   // status: ["boolean", "number|min:0|max:1"],
+  // };
+  // const validate = v.validate(req.body, schema);
   //   const { users_id, nama, price, stock, status } = req.body;
   //hasil balikan dari validate merupakan sebuah array yng mana di dlaam naya terdapat pesan error, jika pesan error ksong, maka tidak ada error yang terjadi
-  if (validate.length) {
-    return res.status(400).json(validate);
+  // if (validate.length) {
+  //   return res.status(400).json(validate);
+  // }
+  // if (image) {
+  //   const target = path.join(__dirname, "../../uploads", image.originalname);
+  //   fs.renameSync(image.path, target);
+  try {
+    console.log("before running product");
+    await Product.sync();
+    const result = await Product.create({
+      users_id: parseInt(users_id),
+      nama,
+      price,
+      stock,
+      status,
+      // image_url: `http://localhost:3000/public/${image.originalname}`,
+    });
+    // res.send(result);
+    console.log("result", result);
+    res.status(201).json({ Product, msg: "User Sukses Create" });
+  } catch (err) {
+    console.log("error", err);
+    res.send(err);
   }
-  if (image) {
-    const target = path.join(__dirname, "../../uploads", image.originalname);
-    fs.renameSync(image.path, target);
-    try {
-      await Product.sync();
-      const result = await Product.create({
-        users_id,
-        nama,
-        price,
-        stock,
-        status,
-        image_url: `http://localhost:3000/public/${image.originalname}`,
-      });
-      //   res.send(result);
-      res.status(201).json({ Product, msg: "User Sukses Create" });
-    } catch (err) {
-      res.send(err);
-    }
-    //jika file yang di upload tidak ada maka akan menampilkan messege
-    // req.image === null
-  } else {
-    return res.status(400).json({ msg: "No file Uploaded" });
-  }
+  //jika file yang di upload tidak ada maka akan menampilkan messege
+  // req.image === null
+  // }
+  //  else {
+  //   return res.status(400).json({ msg: "No file Uploaded" });
+  // }
 };
 const saveProduct = (req, res) => {
   //jika tidak terdapat file yang dikirim
