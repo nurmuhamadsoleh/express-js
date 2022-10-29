@@ -5,7 +5,7 @@ const sequelize = new Sequelize({
   host: "us-cdbr-east-06.cleardb.net",
   username: "bab6b88769f502",
   password: "fb315f89",
-  dialect: process.env.DB_DIALECT,
+  dialect: "mysql",
 });
 
 //untuk mengecek connection ke database

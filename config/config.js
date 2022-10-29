@@ -5,6 +5,7 @@ module.exports = {
     password: DB_PASS,
     database: DB_NAME, //database development
     host: DB_HOST,
+
     // dialect: DB_DIALECT,
   },
   production: {
