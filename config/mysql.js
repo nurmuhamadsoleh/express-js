@@ -4,10 +4,10 @@ const connection = mysql.createConnection({
   // user: "root",
   // password: "Sukses889123",
   // database: "karyawan_crud",
-  database: process.env.DB_NAME,
-  host: process.env.DB_HOST,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
+  database: "heroku_50877c8a747ff2f",
+  host: "us-cdbr-east-06.cleardb.net",
+  username: "bab6b88769f502",
+  password: "fb315f89",
 });
 
 module.exports = connection;
