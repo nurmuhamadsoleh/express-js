@@ -1,5 +1,5 @@
 const connection = require("../../config/sequelize");
-const Product = require("./model");
+const Product = require("./model").Product;
 const path = require("path");
 const fs = require("fs");
 const Validator = require("fastest-validator");
