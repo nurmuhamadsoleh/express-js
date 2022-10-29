@@ -9,7 +9,7 @@ const sequelize = new Sequelize({
   // username: "root",
   // password: "Sukses889123",
   // database: "karyawan_crud_v2",
-  dialect: process.env.DB_DIALECT,
+  dialect: "mysql",
 });
 
 //untuk mengecek connection ke database
